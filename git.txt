@@ -1,0 +1,74 @@
+#Настрйока Git после установки:
+ git --version
+#git version 2.37.3.windows.1
+git config --global user.name "Ivan Tikhonov"
+#Задаем Имя
+git config --global user.email "id123tikhonov@mail.ru"
+#Проверить
+git config -l
+
+echo "HellpGit">file.txt   git add file.txt   git commit -m "v1.0"   git push
+     Untracked                 Staged            Copy in Local      Copy in Remote  
+                                                  Repository         Repository
+____
+#Локальный репозиторий , пишем путь к директорию ,которую хотим отслеживать
+git init {путь}
+
+#Переходим в директорию и проверяем статус
+git status	# Посмотреть статус локального репозитория (Untracked\Staged)
+
+#Сделать снимок - commit
+
+git add * #добавляем все файлы . Переместить новые\измененные файлы\директории из untracked в staged .
+
+git commit -m "Первый снимок" # делаем снимок , обязательно с комментарием
+____
+
+
+git clone https://github.com/BigYorlde/flask_app.git   # Клонировать удаленный репозиторий
+git clone -b <branch> --single-branch <repo url> folder  # Клонировать из репо какой-то конкретный бранч
+
+
+
+
+git pull # Скачать на локальный репозиторий все новые изменения в ветке
+
+
+
+git restore --staged ssss.txt # Восстановить новый файл из staged в untracked
+
+
+git checkout -- file1.txt # Отменить изменения в modified файле
+git checkout -b new_branch  # Создать новую ветвь
+git checkout name_of_branch\hash_of_commit  # Поменять бранч или вернуться на какой-то коммит в локальном репозитории	
+git checkout v1.0.0  # Перейти на коммит с тегом
+
+
+git commit -m "Message"  # Сделать staged версию в полноценную
+
+
+git branch # Посмотреть бранчи	
+git branch -D name_of_branch  # Удалить выбранный бранч		
+
+				 
+git log --pretty=oneline # Посмотреть коммиты
+git log  #лог с коммитами
+
+
+git reset --hard HEAD~  # Снести последний коммит
+git reset --hard HEAD~3 # Снести 3 последних коммита
+git reset --soft HEAD~  # Удалить из git log информацию о коммитах, при этом изменения сохранятся
+
+
+git push origin #  Загрузить коммиты на удаленный репозиторий
+git push --set-upstream origin ivan_228 # Создать бранч на удаленном репозитории
+git push origin --delete ivan_228  # Удалить бранч на удаленном репозитории
+git push origin v1.0.0  # запушить тег в удаленный репозиторий
+git push origin --delete v1.2.0  # Удалить тег с удаленного репозитория
+
+
+git tag # посмотреть список тегов
+git tag v1.0.0  # Создать новый тег, он будет привязан к последнему коммиту в локательном репозитории
+git tag -a v1.2.0 9ffea01  # Дать тег коммиту
+git tag -d v1.2.0  # Удалить тег
+
